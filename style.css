@@ -1,0 +1,185 @@
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --card-bg: white;
+    --icon-color: #333;        /* Add this line */
+    --icon-hover: #0077b5;     /* Update hover color if you want */
+}
+
+* {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Dark theme styles */
+body.dark {
+    --bg-color: #121212;
+    --text-color: #f5f5f5;
+    --card-bg: #1e1e1e;
+    --icon-color: #f5f5f5;     /* Add this line */
+    --icon-hover: #4da3ff;     /* Add this line */
+}
+  
+.container {
+    background: var(--card-bg);
+}
+  
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+  
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+  
+.title {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+}
+  
+.bio {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+  
+.social-icons {
+    text-align: center;
+    margin-top: 30px;
+  }
+    
+.social-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: var(--icon-color);
+    transition: color 0.2s ease;
+}
+    
+.social-icons a:hover {
+    color: var(--icon-hover);
+}
+  
+.social-icons a {
+    position: relative;
+}
+
+/* Tooltip style */
+.social-icons a::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 130%; /* slightly above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 5px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 0.75rem;
+    z-index: 1;
+}
+
+/* Show tooltip on hover */
+.social-icons a:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg);
+}
+
+.container,
+.theme-toggle,
+.profile-img,
+.social-icons a {
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+        width: 95%;
+        border-radius: 1rem;
+    }
+
+    .profile-img {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .title {
+        font-size: 0.9rem;
+    }
+
+    .bio {
+        font-size: 0.85rem;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+        margin: 0 8px;
+    }
+
+    .theme-toggle {
+        font-size: 1.2rem;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+}
